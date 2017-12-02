@@ -21,7 +21,7 @@
 
   <body>
 
-   <%@include file="./navigation.html"%>
+   <%@include file="./navigation.jsp"%>
 
     <!-- Page Content -->
     <div class="container" style="margin-top: 70px;">

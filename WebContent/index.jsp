@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>액괴쇼핑몰</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +22,7 @@
 
   <body>
 
-<%@include file="./navigation.html"%>
+<%@include file="./navBeforeLogin.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -29,11 +31,11 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Shop Name</h1>
+          <h2 class="my-4">슬라임슬라임</h2>
           <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            <a href="#" class="list-group-item">진주</a>
+            <a href="#" class="list-group-item">색깔모래</a>
+            <a href="#" class="list-group-item">기타</a>
           </div>
 
         </div>

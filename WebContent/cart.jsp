@@ -7,7 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<%@include file="./navigation.html"%>
+	<%@include file="./navigation.jsp"%>
 	<div class="container" style="margin-top: 70px;">
 	    <h1>Cart List</h1>
 	    <div class="row">
