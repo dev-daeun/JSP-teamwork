@@ -10,7 +10,6 @@ import dto.UserDto;
 
 public class UserDao {
 
-	private String driver;
 	private Connection conn;
 	private PreparedStatement statement;
 	

@@ -15,16 +15,16 @@
     <title>액괴쇼핑몰</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/shop-homepage.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">
 
   </head>
 
   <body>
 
-<%@include file="./navBeforeLogin.jsp"%>
+<%@include file="../navBeforeLogin.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -72,6 +72,8 @@
             </a>
           </div>
 
+  			<h2>카테고리 - <%=request.getAttribute("category") %></h2>
+  			<hr>
           <div class="row">
 			<% for(ProductDto product: (ArrayList<ProductDto>)request.getAttribute("productList")) { %>
             <div class="col-lg-4 col-md-6 mb-4">
@@ -105,10 +107,10 @@
     <!-- /.container -->
 
         <!-- Footer -->
- 	<%@include file="./footer.html"%>
+ 	<%@include file="../footer.html"%>
     <!-- Bootstrap core JavaScript -->
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 
   </body>
 

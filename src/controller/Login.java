@@ -20,6 +20,9 @@ import dto.UserDto;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+	 }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
@@ -43,7 +46,7 @@ public class Login extends HttpServlet {
 				return;
 			}
 			
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			response.sendRedirect("/ShoppingMall/main");
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

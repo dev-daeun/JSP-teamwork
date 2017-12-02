@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="dto.ProductDto" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,19 +10,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Item - Start Bootstrap Template</title>
+    <title>액괴쇼핑몰 - 슬라임슬라임</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-item.css" rel="stylesheet">
+    <link href="../css/shop-item.css" rel="stylesheet">
 
   </head>
 
   <body>
 
-    <%@include file="./navigation.jsp"%>
+    <%@include file="../navigation.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -28,25 +30,31 @@
       <div class="row">
 
         <div class="col-lg-3">
-          <h1 class="my-4">Shop Name</h1>
+
+          <h3 class="my-4">슬라임슬라임<img width="70px" height="70px" src="http://file2.instiz.net/data/cached_img/upload/201506049/639f49dc5697497e782ad306c4aa0d16.png"></h3>
           <div class="list-group">
-            <a href="#" class="list-group-item active">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            <a href="/ShoppingMall/productInfo/list?category=perl" class="list-group-item">진주</a>
+            <a href="/ShoppingMall/productInfo/list?category=sand" class="list-group-item">색모래</a>
+            <a href="/ShoppingMall/productInfo/list?category=etc" class="list-group-item">기타</a>
           </div>
+
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
           <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            <img class="card-img-top img-fluid" style="width: 824px; height: 360px;" src="<%=((ProductDto)request.getAttribute("item")).getImagePath()%>" alt="">
             <div class="card-body">
-              <h3 class="card-title">Product Name</h3>
-              <h4>$24.99</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+              <h3 class="card-title"><%=((ProductDto)request.getAttribute("item")).getName() %></h3>
+              <h4>￦<%=((ProductDto)request.getAttribute("item")).getPrice() %></h4>
+              <p class="card-text"><%=((ProductDto)request.getAttribute("item")).getDescription() %></p>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
+              	<a href="#" style="float: right;" class="btn btn-success">찜 하기</a>
+              	<a href="#" style="float: right; margin-right: 10px;" class="btn btn-info">장바구니</a>
+              <div>
+ 
+              </div>
             </div>
           </div>
           <!-- /.card -->
@@ -79,11 +87,11 @@
     <!-- /.container -->
 
        <!-- Footer -->
- 	<%@include file="./footer.html"%>
+ 	<%@include file="../footer.html"%>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../jquery/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 
   </body>
 

@@ -17,9 +17,7 @@
 						<h2 class="well" style="text-align: center;">회원가입이 완료되었습니다.</h2>
 					</div>
 					<div class="form-group">
-						<a href="/ShoppingMall/userInfo/login.jsp">
-							<a href="/ShoppingMall/userInfo/login.jsp"><input type="button" class="btn btn-lg btn-info form-control" style="align: center;" value="로그인"></a>
-						</a>
+							<a href="/ShoppingMall/userInfo/login"><input type="button" class="btn btn-lg btn-info form-control" style="align: center;" value="로그인"></a>
 					</div>
 				</form>	
 			</div>

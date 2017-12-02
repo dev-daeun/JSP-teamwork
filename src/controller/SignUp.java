@@ -26,6 +26,10 @@ public class SignUp extends HttpServlet {
     }
 
 
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	   request.getRequestDispatcher("/userInfo/signup.jsp").forward(request, response);
+   }
+   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
 		request.setCharacterEncoding("UTF-8");
@@ -56,15 +60,6 @@ public class SignUp extends HttpServlet {
 			}
 			
 			UserDao dao = new UserDao();
-			UserDto userExist = dao.selectByEmail(request.getParameter("email"));
-			if(userExist.getEmail().equals(request.getParameter("email"))){
-				response.sendError(400, "이미 존재하는 이메일 주소입니다.");
-				return;
-			}
-			
-			// UserDao : 데이터베이스에 삽입/조회/수정 되는 레코드를 객체화하는 클래스
-			// UserDto : jdbc 커낵션 풀로 데이터베이스에 접근하여 UserDao의 값을 데이터베이스에서 조작하는 클래스
-			
 			UserDto user = new UserDto();		
 			String address = request.getParameter("add1")+" "+request.getParameter("add2")+" "+request.getParameter("add3");
 			user.setEmail(request.getParameter("email"));
