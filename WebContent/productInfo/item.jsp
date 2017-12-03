@@ -4,7 +4,6 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -13,8 +12,7 @@
     <title>액괴쇼핑몰 - 슬라임슬라임</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/shop-item.css" rel="stylesheet">
 
@@ -50,8 +48,10 @@
               <p class="card-text"><%=((ProductDto)request.getAttribute("item")).getDescription() %></p>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
-              	<a href="#" style="float: right;" class="btn btn-success">찜 하기</a>
-              	<a href="#" style="float: right; margin-right: 10px;" class="btn btn-info">장바구니</a>
+              	<button name="productCode" id="product-code" value="<%=((ProductDto)request.getAttribute("item")).getCode()%>" style="display: none;"></button>
+              	<input type="submit" style="float: right;" class="btn btn-success" value="찜 하기">
+              	<input type="submit" id="add-cart" style="float: right; margin-right: 10px;" class="btn btn-info" value="장바구니">
+              	
               <div>
  
               </div>
@@ -92,7 +92,25 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../jquery/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-
+	<script>
+	<!--
+	$("#add-cart").click(function(){
+		$.ajax({
+			url: "/ShoppingMall/cart",
+			method: "POST",
+			data: {
+				productCode: $("#product-code").val()
+			},
+			error: function(xhr, status, err){
+				alert(xhr.responseText);
+			},
+			success: function(){
+				alert("장바구니에 담겼습니다.")
+			}
+		})
+	})
+		-->
+	</script>
   </body>
 
 </html>

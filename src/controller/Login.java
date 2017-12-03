@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import dto.UserDto;
@@ -46,6 +47,8 @@ public class Login extends HttpServlet {
 				return;
 			}
 			
+			/* 로그인 정보가 맞으면 */
+			request.getSession().setAttribute("uid", userInfo.getId());
 			response.sendRedirect("/ShoppingMall/main");
 			
 		} catch (ClassNotFoundException | SQLException e) {

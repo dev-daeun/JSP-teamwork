@@ -49,4 +49,13 @@
     <servlet-name>product-list</servlet-name>
     <url-pattern>/productInfo/list</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>cart-post-get</servlet-name>
+    <servlet-class>controller.Cart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cart-post-get</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+
 </web-app>

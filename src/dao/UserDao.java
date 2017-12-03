@@ -50,7 +50,7 @@ public class UserDao {
 
 
 		//3. sql 쿼리문을 만든다.
-		String query = "select email, password from user where email = ?";
+		String query = "select id, email, password from user where email = ?";
 		//4. 2.에서 만든 커낵션 객체와 3.의 쿼리문으로 PreparedStatment 객체를 만든다.
 		statement = conn.prepareStatement(query);
 		
@@ -65,6 +65,7 @@ public class UserDao {
 		
 		//result.next()로 result 커서의 주소를 옮겨줘야 select문 결과를 가져올 수 있음.
 		while(result.next()){
+			userInfo.setId(result.getInt("id"));
 			userInfo.setEmail(result.getString("email"));
 			userInfo.setPassword(result.getString("password"));			
 		}

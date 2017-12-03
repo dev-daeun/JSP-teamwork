@@ -2,6 +2,7 @@ package dto;
 
 public class UserDto {
 
+	private int id;
 	private String email;
 	private String phone;
 	private String password;
@@ -9,6 +10,12 @@ public class UserDto {
 	private String address;
 	private int mileage;
 	
+	public int getId(){
+		return id;
+	}
+	public void setId(int id){
+		this.id = id;
+	}
 	public String getEmail() {
 		return email;
 	}
