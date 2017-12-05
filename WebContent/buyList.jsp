@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>장바구니</title>
+<title>구매목록</title>
    
 </head>
 <style type="text/css">
@@ -14,7 +14,7 @@
 <body>
 	<%@include file="./navigation.jsp"%>
 	<div class="container" style="margin-top: 70px;">
-	    <h1>장바구니</h1>
+	    <h1>구매목록</h1>
 
 	        <div class="col-lg-12">
 	            <table class="table table-hover">
@@ -24,11 +24,11 @@
 	                        <th class="col-lg-1">수량</th>
 	                        <th class="col-lg-2 text-center">가격</th>
 	                        <th class="col-lg-2 text-center">합계</th>
-	                        <th class="col-lg-2">수정/삭제</th>
+	                        <th class="col-lg-2">취소</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                <% for(CartProductDto cart: (ArrayList<CartProductDto>)request.getAttribute("cartList")){ %>
+	                <% for(CartProductDto cart: (ArrayList<CartProductDto>)request.getAttribute("buyList")){ %>
 	                	  <tr class="col-lg-12 media" value="<%=cart.getProduct().getCode() %>">
 								<td class="col-lg-5">		                    
 		                          <div class="media-body">
@@ -42,13 +42,12 @@
 		                          </div>
 	                        	</td>
 	                        <td class="col-lg-1" style="text-align: center">
-	                        		<input type="number" class="form-control" class="amount-input" value="1">
+	                        		<strong><%=cart.getCart().getAmount() %></strong>
 	                        </td>
 	                        <td class="col-lg-2 text-center element-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 text-center element-total-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 ">
-	                        		<button type="button" class="btn btn-danger edit-amount"> 수정</button>
-	                        		<button type="button" class="btn btn-danger"> 삭제</button>
+	                        		<button type="button" class="btn btn-danger edit-amount">구매취소</button>
 	                        </td>
 	                    </tr>
 					<%} %>
@@ -57,10 +56,7 @@
 	        </div>
 	  
 	</div>	   
-   <div class="container" style="margin-bottom: 120px;">
-   <button type="button" id="buy-button" style="float: right; margin-right: 50px; margin-left: 10px;" class="btn btn-info btn-lg-6">구매하기</button>
-   		<span id="total-price" style="float: right; font-weight: bold">합계 : <%=request.getAttribute("totalPrice") %></span>
-	    
+   <div class="container" style="margin-bottom: 120px;"> 
 	</div>  	   
 	    <!-- Footer -->
  	<%@include file="./footer.html"%>

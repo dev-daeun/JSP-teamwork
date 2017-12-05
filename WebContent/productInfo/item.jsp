@@ -43,7 +43,7 @@
             <div class="card-body">
               <h3 class="card-title"><%=((ProductDto)request.getAttribute("item")).getName() %></h3>
               <h4>￦<%=((ProductDto)request.getAttribute("item")).getPrice() %></h4>
-              <p class="card-text"><%=((ProductDto)request.getAttribute("item")).getDescription() %></p>
+              <p class="card-text"><%=((ProductDto)request.getAttribute("item")).getDescription()%></p>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
               	<button name="productCode" id="product-code" value="<%=((ProductDto)request.getAttribute("item")).getCode()%>" style="display: none;"></button>

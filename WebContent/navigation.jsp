@@ -9,16 +9,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                내 정보
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-2-col.html">찜 리스트</a>
-                <a class="dropdown-item" href="portfolio-3-col.html">장바구니</a>
-                 <a class="dropdown-item" href="portfolio-3-col.html">구매목록</a>
-                <a class="dropdown-item" href="portfolio-4-col.html">내 정보 수정</a>
-              </div>
+            <li class="nav-item">
+            		<a class="nav-link" href="portfolio-2-col.html">찜 리스트</a>
+   			  </li>
+   			  <li class="nav-item">
+   			 		<a class="nav-link" href="/ShoppingMall/cart">장바구니</a>
+   			  </li>
+   			  <li class="nav-item"> 
+   			  		<a class="nav-link" href="/ShoppingMall/purchase">구매목록</a>
+   			  </li>
+   			  <li class="nav-item">
+   			  </li>
+   			  <li class="nav-item">
+				 <a class="nav-link" href="portfolio-4-col.html">내 정보 수정</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">회원 게시판</a>

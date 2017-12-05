@@ -27,7 +27,8 @@ public class Cart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			CartDao dao = new CartDao();
-			ArrayList<CartProductDto> cartList = dao.getCartByUserId(Integer.parseInt(request.getSession().getAttribute("uid").toString()));
+			int userId =  Integer.parseInt(request.getSession().getAttribute("uid").toString());
+			ArrayList<CartProductDto> cartList = dao.getCartByUserId(userId, 0);
 			
 			int totalPrice = 0;
 			for(CartProductDto element: cartList){
@@ -57,7 +58,7 @@ public class Cart extends HttpServlet {
 				
 				CartDao dao = new CartDao();
 				
-				ArrayList<CartProductDto> cartList = dao.getCartByUserId(userId);
+				ArrayList<CartProductDto> cartList = dao.getCartByUserId(userId, 0);
 				
 				for(CartProductDto element: cartList){
 					if(element.getProduct().getCode()==productCode) {

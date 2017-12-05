@@ -6,6 +6,14 @@ public class CartDto {
 	private int userId;
 	private int productCode;
 	private short isPurchased;
+	private int amount; 
+	
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	public int getId() {
 		return id;
 	}
