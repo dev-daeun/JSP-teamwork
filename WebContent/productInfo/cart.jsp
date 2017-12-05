@@ -59,7 +59,7 @@
 	</div>	   
    <div class="container" style="margin-bottom: 120px;">
    <button type="button" id="buy-button" style="float: right; margin-right: 50px; margin-left: 10px;" class="btn btn-info btn-lg-6">구매하기</button>
-   		<span id="total-price" style="float: right; font-weight: bold">합계 : <%=request.getAttribute("totalPrice") %></span>
+   		합계 : <span id="total-price" style="float: right; font-weight: bold"> <%=request.getAttribute("totalPrice") %></span>
 	    
 	</div>  	   
 	    <!-- Footer -->
@@ -79,10 +79,11 @@
 				});
 	
 				$.ajax({
-					url: "/ShoppingMall/purchase",
+					url: "/ShoppingMall/purchase?value=post",
 					method: "POST",
 					data: {
-						buyList: JSON.stringify(productArray)
+						buyList: JSON.stringify(productArray),
+						mileage: parseInt($("#total-price").text()) * 0.05
 					},
 					error: function(xhr, status, err){
 						alert(xhr.responseText);

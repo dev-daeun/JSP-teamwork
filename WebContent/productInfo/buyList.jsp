@@ -46,7 +46,7 @@
 	                        </td>
 	                        <td class="col-lg-2 text-center element-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 text-center element-total-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
-	                        <td class="col-lg-2 ">
+	                        <td class="col-lg-2 " value="<%=cart.getProduct().getPrice()%>">
 	                        		<button type="button" class="btn btn-danger cancel-button">구매취소</button>
 	                        </td>
 	                    </tr>
@@ -71,8 +71,12 @@
 			if(confirm("구매취소 하시겠습니까?")){
 				var code = $(ent.target).parents("tr").attr("value");
 				$.ajax({
-					url: "/ShoppingMall/purchase?code="+code,
-					method: "DELETE",
+					url: "/ShoppingMall/purchase?value=delete",
+					method: "POST",
+					data: {
+						"code": code,
+						"mileage": parseInt($(ent.target).parent().attr("value")) * 0.05
+					},
 					error: function(xhr, status, err){
 						alert(xhr.responseText);
 					},

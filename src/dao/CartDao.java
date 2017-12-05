@@ -76,41 +76,76 @@ public class CartDao {
 		
 	}
 	
-	public void updatePurchased(int userId, String[] productCodes) throws ClassNotFoundException, SQLException{
+	public void updatePurchased(int userId, String[] productCodes, int mileage) throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
-		
-		String query = "update cart set isPurchased = 1 where userId = ? and productCode in (";
-		String subSql = "";
-		for(String code: productCodes){
-			if(code==null) continue;
-			else subSql += code + ",";
+		try {
+			//트랜잭션 처리를 위해 자동커밋여부 false로 설정
+			conn.setAutoCommit(false);
+			String cartQuery = "update cart set isPurchased = 1 where userId = ? and productCode in (";
+			
+			String subSql = "";
+			for(String code: productCodes){
+				if(code==null) continue;
+				else subSql += code + ",";
+			}
+			String result = subSql.substring(1, subSql.length()-2);
+			cartQuery += result;
+			cartQuery += ");";
+			
+			statement = conn.prepareStatement(cartQuery);
+			statement.setInt(1, userId);
+			statement.executeUpdate();
+			statement.close();
+			
+			/* 마일리지 업데이트*/
+			String userQuery = "update user set mileage = mileage + ? where id = ?";
+			statement = conn.prepareStatement(userQuery);
+			
+			statement.setInt(1, mileage);
+			statement.setInt(2, userId);
+			statement.executeUpdate();
+			statement.close();
+			
+			conn.commit();
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			conn.rollback();
+			e.printStackTrace();
 		}
-		String result = subSql.substring(1, subSql.length()-2);
-		query += result;
-		query += ");";
-		
-		statement = conn.prepareStatement(query);
-		statement.setInt(1, userId);
-		statement.executeUpdate();
-		
-		statement.close();
-		conn.close();
+	
 	}
 	
-	public void delete(int userId, int productCode) throws ClassNotFoundException, SQLException{
+	public void delete(int userId, int productCode, int mileage) throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+		conn.setAutoCommit(false);
 		
-		String query = "delete from cart where userId = ? and productCode = ?";
-		
-		statement = conn.prepareStatement(query);
-		statement.setInt(1, userId);
-		statement.setInt(2, productCode);
-		statement.executeUpdate();
-		
-		statement.close();
-		conn.close();
+		try {
+			String cartQuery = "delete from cart where userId = ? and productCode = ?";
+			statement = conn.prepareStatement(cartQuery);
+			statement.setInt(1, userId);
+			statement.setInt(2, productCode);
+			statement.execute();
+			statement.close();
+			
+			String userQuery = "update user set mileage = mileage-? where id = ?";
+			statement = conn.prepareStatement(userQuery);
+			statement.setInt(1, mileage);
+			statement.setInt(2, userId);
+			statement.execute();
+			statement.close();
+			
+			conn.commit();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			conn.rollback();
+			e.printStackTrace();
+		}
 	}
 	
 
