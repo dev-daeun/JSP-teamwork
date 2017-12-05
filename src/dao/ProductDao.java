@@ -21,7 +21,7 @@ public class ProductDao {
 	public ArrayList<ProductDto> getNewest() throws ClassNotFoundException, SQLException{
 
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(DBConfig.getDBAddress()+"&useSSL=false", DBConfig.getDBUser(), DBConfig.getDBPassword());
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
 
 		String query = "select * from product order by code desc limit 6";
 		statement = conn.prepareStatement(query);
@@ -54,7 +54,7 @@ public class ProductDao {
 	public ArrayList<ProductDto> getProductsByCategory(String category) throws ClassNotFoundException, SQLException{
 
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(DBConfig.getDBAddress()+"&useSSL=false", DBConfig.getDBUser(), DBConfig.getDBPassword());
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
 
 		String query = "select * from product where category = ?";
 		statement = conn.prepareStatement(query);
@@ -87,7 +87,7 @@ public class ProductDao {
 	/*특정 상품을 코드로 조회*/
 	public ProductDto getProductByCode(int code) throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(DBConfig.getDBAddress()+"&useSSL=false", DBConfig.getDBUser(), DBConfig.getDBPassword());
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
 
 		String query = "select * from product where code = ?";
 		statement = conn.prepareStatement(query);

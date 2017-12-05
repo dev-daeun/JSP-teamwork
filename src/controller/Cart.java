@@ -49,7 +49,6 @@ public class Cart extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
 			int productCode = Integer.parseInt(request.getParameter("productCode"));
-//			int productCode = 1009;
 			try {
 				
 				CartDto newCart = new CartDto();

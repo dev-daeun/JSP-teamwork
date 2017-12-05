@@ -17,9 +17,10 @@ import dto.CartProductDto;
 @WebServlet("/Purchase")
 public class Purchase extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private CartDao dao;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartDao dao = new CartDao();
+		dao = new CartDao();
 	
 		try {
 			 int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
@@ -35,17 +36,27 @@ public class Purchase extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartDao dao = new CartDao();
+		dao = new CartDao();
 		String[] buyList = request.getParameterValues("buyList");
 		try {
 			 dao.updatePurchased(Integer.parseInt(request.getSession().getAttribute("uid").toString()), buyList);
-			 request.getRequestDispatcher("/purchase").forward(request, response);
-			 
 		} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
+	}
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		dao = new CartDao();
+		int productCode = Integer.parseInt(request.getQueryString().substring(5));
+		int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
+		try {
+			dao.delete(userId, productCode);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

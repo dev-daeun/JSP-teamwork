@@ -46,7 +46,7 @@ public class UserDao {
 		//1.jdbc를 로드한다.
 		Class.forName("com.mysql.jdbc.Driver");
 		//2. 데이터베이스 접근에 필요한 커낵션 객체를 만든다.
-		conn = DriverManager.getConnection(DBConfig.getDBAddress()+"&useSSL=false", DBConfig.getDBUser(), DBConfig.getDBPassword());
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
 
 
 		//3. sql 쿼리문을 만든다.

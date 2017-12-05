@@ -98,5 +98,20 @@ public class CartDao {
 		conn.close();
 	}
 	
+	public void delete(int userId, int productCode) throws ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+		
+		String query = "delete from cart where userId = ? and productCode = ?";
+		
+		statement = conn.prepareStatement(query);
+		statement.setInt(1, userId);
+		statement.setInt(2, productCode);
+		statement.executeUpdate();
+		
+		statement.close();
+		conn.close();
+	}
+	
 
 }

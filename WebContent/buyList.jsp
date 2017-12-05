@@ -47,7 +47,7 @@
 	                        <td class="col-lg-2 text-center element-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 text-center element-total-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 ">
-	                        		<button type="button" class="btn btn-danger edit-amount">구매취소</button>
+	                        		<button type="button" class="btn btn-danger cancel-button">구매취소</button>
 	                        </td>
 	                    </tr>
 					<%} %>
@@ -66,25 +66,19 @@
 </script>
 <script type="text/javascript">
 	$(function(){
-		var productArray = new Array();
-		
-		$("#buy-button").click(function(){
-			if(confirm("구매하시겠습니까?")){
-				$("tr").each(function(idx, element){ 
-					if($(element).attr("value")!=null) productArray.push($(element).attr("value")); 
-				});
-	
+
+		$("body").on("click", ".cancel-button", function(ent){
+			if(confirm("구매취소 하시겠습니까?")){
+				var code = $(ent.target).parents("tr").attr("value");
 				$.ajax({
-					url: "/ShoppingMall/purchase",
-					method: "POST",
-					data: {
-						buyList: JSON.stringify(productArray)
-					},
+					url: "/ShoppingMall/purchase?code="+code,
+					method: "DELETE",
 					error: function(xhr, status, err){
 						alert(xhr.responseText);
 					},
 					success: function(){
-						alert("구매완료 되었습니다.");
+						alert("구매취소 되었습니다.");
+						$(ent.target).parents("tr").remove();
 					}
 				})
 			}

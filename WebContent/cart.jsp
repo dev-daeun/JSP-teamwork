@@ -89,6 +89,7 @@
 					},
 					success: function(){
 						alert("구매완료 되었습니다.");
+						location.href="/ShoppingMall/purchase";
 					}
 				})
 			}
