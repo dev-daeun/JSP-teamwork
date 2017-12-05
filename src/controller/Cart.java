@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,11 +25,16 @@ public class Cart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getSession().getAttribute("uid").toString());
 		try {
 			CartDao dao = new CartDao();
 			ArrayList<CartProductDto> cartList = dao.getCartByUserId(Integer.parseInt(request.getSession().getAttribute("uid").toString()));
+			
+			int totalPrice = 0;
+			for(CartProductDto element: cartList){
+				totalPrice += element.getProduct().getPrice();
+			}
 			request.setAttribute("cartList", cartList);
+			request.setAttribute("totalPrice", totalPrice);
 			request.getRequestDispatcher("/cart.jsp").forward(request, response);
 		} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -41,8 +47,8 @@ public class Cart extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
-//			int productCode = Integer.parseInt(request.getParameter("productCode"));
-			int productCode = 1009;
+			int productCode = Integer.parseInt(request.getParameter("productCode"));
+//			int productCode = 1009;
 			try {
 				
 				CartDto newCart = new CartDto();
@@ -50,6 +56,15 @@ public class Cart extends HttpServlet {
 				newCart.setProductCode(productCode);
 				
 				CartDao dao = new CartDao();
+				
+				ArrayList<CartProductDto> cartList = dao.getCartByUserId(userId);
+				
+				for(CartProductDto element: cartList){
+					if(element.getProduct().getCode()==productCode) {
+						response.sendError(400);
+						return;
+					}
+				}
 				dao.insert(newCart);
 				
 				response.sendRedirect(request.getRequestURI()+"?code="+productCode);

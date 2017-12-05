@@ -4,9 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>회원가입</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+	<%@ include file="../css/bootstrap.min.css"%>
+</style>
 <body>
 	<%@include file="../navBeforeLogin.jsp"%>
     <div style="align: center;">

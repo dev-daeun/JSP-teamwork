@@ -4,7 +4,7 @@ public class CartProductDto {
 
 	private CartDto cart;
 	private ProductDto product;
-	
+
 	public CartDto getCart() {
 		return cart;
 	}

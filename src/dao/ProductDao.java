@@ -36,7 +36,7 @@ public class ProductDao {
 			product.setCode(result.getInt("code"));
 			product.setCategory(result.getString("category"));
 			product.setName(result.getString("name"));
-			product.setPrice(result.getString("price"));
+			product.setPrice(result.getInt("price"));
 			product.setImagePath(result.getString("imagePath"));
 			product.setDescription(result.getString("description"));
 			product.setPostedTime(dateFormat.format(result.getDate("postedTime")));
@@ -70,7 +70,7 @@ public class ProductDao {
 			product.setCode(result.getInt("code"));
 			product.setCategory(result.getString("category"));
 			product.setName(result.getString("name"));
-			product.setPrice(result.getString("price"));
+			product.setPrice(result.getInt("price"));
 			product.setImagePath(result.getString("imagePath"));
 			product.setDescription(result.getString("description"));
 			product.setPostedTime(dateFormat.format(result.getDate("postedTime")));
@@ -99,7 +99,7 @@ public class ProductDao {
 			product.setCode(result.getInt("code"));
 			product.setCategory(result.getString("category"));
 			product.setName(result.getString("name"));
-			product.setPrice(result.getString("price"));
+			product.setPrice(result.getInt("price"));
 			product.setImagePath(result.getString("imagePath"));
 			product.setDescription(result.getString("description"));
 		}

@@ -36,6 +36,7 @@ public class Main extends HttpServlet {
 		try {
 			ArrayList<ProductDto> products = dao.getNewest();
 			request.setAttribute("productList", products);
+			response.setContentType("text/html; charset=UTF-8");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

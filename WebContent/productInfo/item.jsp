@@ -11,13 +11,11 @@
 
     <title>액괴쇼핑몰 - 슬라임슬라임</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/shop-item.css" rel="stylesheet">
-
   </head>
-
+	<style type="text/css">
+		<%@ include file="../css/bootstrap.min.css"%>
+	 	<%@ include file="../css/shop-item.css"%>
+</style>
   <body>
 
     <%@include file="../navigation.jsp"%>
@@ -89,27 +87,27 @@
        <!-- Footer -->
  	<%@include file="../footer.html"%>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="../jquery/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-	<script>
-	<!--
-	$("#add-cart").click(function(){
-		$.ajax({
-			url: "/ShoppingMall/cart",
-			method: "POST",
-			data: {
-				productCode: $("#product-code").val()
-			},
-			error: function(xhr, status, err){
-				alert(xhr.responseText);
-			},
-			success: function(){
-				alert("장바구니에 담겼습니다.")
-			}
+   	<script>
+   		<%@ include file="../jquery/jquery.min.js"%>
+   	</script>
+	<script type="text/javascript">
+	if(typeof jQuery == "undefined") alert("not loaeded")
+		$("#add-cart").click(function(){
+			$.ajax({
+				url: "/ShoppingMall/cart",
+				method: "POST",
+				data: {
+					productCode: $("#product-code").val()
+				},
+				error: function(xhr, status, err){
+					alert("장바구니에 이미 담긴 품목입니다.");
+				},
+				success: function(){
+					alert("장바구니에 담겼습니다.")
+				}
+			})
 		})
-	})
-		-->
 	</script>
   </body>
 

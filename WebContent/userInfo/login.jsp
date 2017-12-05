@@ -4,9 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>로그인</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+<style type="text/css">
+	<%@ include file="../css/bootstrap.min.css"%>
+</style>
 <body>
 	<%@include file="../navBeforeLogin.jsp"%>
 		<div class="col-lg-4"></div>

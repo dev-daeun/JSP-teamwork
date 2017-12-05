@@ -7,7 +7,7 @@ public class ProductDto {
 	private int code;
 	private String category;
 	private String name;
-	private String price;
+	private int price;
 	private String imagePath;
 	private String description;
 	private String postedTime;
@@ -16,7 +16,7 @@ public class ProductDto {
 		this.code = 0;
 		this.category = null;
 		this.name = null;
-		this.price = null;
+		this.price = 0;
 		this.imagePath = null;
 		this.description = null;
 		this.postedTime = null;
@@ -39,10 +39,10 @@ public class ProductDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getImagePath() {

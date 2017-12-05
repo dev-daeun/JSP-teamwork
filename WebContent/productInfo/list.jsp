@@ -14,14 +14,13 @@
 
     <title>액괴쇼핑몰</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../css/shop-homepage.css" rel="stylesheet">
 
   </head>
-
+	<style type="text/css">
+		<%@ include file="../css/bootstrap.min.css"%>
+		<%@ include file="../css/shop-homepage.css"%>
+	</style>
   <body>
 
 <%@include file="../navBeforeLogin.jsp"%>

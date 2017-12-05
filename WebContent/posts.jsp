@@ -11,16 +11,14 @@
 
     <title>Modern Business - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
 
   </head>
 
   <body>
-
+  <style type="text/css">
+  	<%@ include file="./css/bootstrap.min.css"%>
+  </style>
    <%@include file="./navigation.jsp"%>
 
     <!-- Page Content -->

@@ -5,26 +5,26 @@
 <html lang="en">
 
   <head>
-
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>액괴쇼핑몰</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/shop-homepage.css" rel="stylesheet">
+
 
   </head>
-
+	<style type="text/css">
+		<%@ include file="./css/bootstrap.min.css" %>
+		<%@ include file="./css/shop-homepage.css" %>
+	</style>
   <body>
 
-<%@include file="./navBeforeLogin.jsp"%>
+	<%@include file="./navBeforeLogin.jsp"%>
 
     <!-- Page Content -->
     <div class="container">
@@ -33,7 +33,7 @@
 
         <div class="col-lg-3">
 
-          <h3 class="my-4">슬라임슬라임<img width="70px" height="70px" src="http://file2.instiz.net/data/cached_img/upload/201506049/639f49dc5697497e782ad306c4aa0d16.png"></h3>
+          <h3 class="my-4">슬라임슬라임<img width="90px" height="90px" src="http://file2.instiz.net/data/cached_img/upload/201506049/639f49dc5697497e782ad306c4aa0d16.png"></h3>
           <div class="list-group">
             <a href="/ShoppingMall/productInfo/list?category=perl" class="list-group-item">진주</a>
             <a href="/ShoppingMall/productInfo/list?category=sand" class="list-group-item">색모래</a>
@@ -107,8 +107,8 @@
         <!-- Footer -->
  	<%@include file="./footer.html"%>
     <!-- Bootstrap core JavaScript -->
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./jquery/jquery.min.js" type="text/javascript" ></script>
+    <script src="./js/bootstrap.bundle.min.js" type="text/javascript" ></script>
 
   </body>
 

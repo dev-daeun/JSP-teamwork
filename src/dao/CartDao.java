@@ -30,6 +30,7 @@ public class CartDao {
 		
 	}
 	
+
 	public ArrayList<CartProductDto> getCartByUserId(int userId) throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
@@ -45,6 +46,7 @@ public class CartDao {
 		CartDto cart;
 		ProductDto product;
 		CartProductDto cartElement;
+		
 		while(result.next()){
 			cart = new CartDto();
 			cart.setId(result.getInt("cartId"));
@@ -55,13 +57,15 @@ public class CartDao {
 			product = new ProductDto();
 			product.setCode(result.getInt("code"));
 			product.setName(result.getString("name"));
-			product.setPrice(result.getString("price"));
+			product.setPrice(result.getInt("price"));
 			product.setImagePath(result.getString("imagePath"));
 			
 			cartElement = new CartProductDto();
 			cartElement.setCart(cart);
 			cartElement.setProduct(product);
 			cartList.add(cartElement);
+			
+
 		}
 		
 		result.close();
