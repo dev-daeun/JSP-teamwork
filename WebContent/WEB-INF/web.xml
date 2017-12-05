@@ -65,4 +65,12 @@
     <servlet-name>purchase</servlet-name>
     <url-pattern>/purchase</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>edit-user</servlet-name>
+    <servlet-class>controller.EditInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>edit-user</servlet-name>
+    <url-pattern>/userInfo/edit</url-pattern>
+  </servlet-mapping>
 </web-app>

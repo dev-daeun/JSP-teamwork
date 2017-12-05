@@ -9,10 +9,10 @@
    
 </head>
 <style type="text/css">
-	<%@ include file="./css/bootstrap.min.css"%>
+	<%@ include file="../css/bootstrap.min.css"%>
 </style>
 <body>
-	<%@include file="./navigation.jsp"%>
+	<%@include file="../navigation.jsp"%>
 	<div class="container" style="margin-top: 70px;">
 	    <h1>장바구니</h1>
 
@@ -63,10 +63,10 @@
 	    
 	</div>  	   
 	    <!-- Footer -->
- 	<%@include file="./footer.html"%>
+ 	<%@include file="../footer.html"%>
 </body>
 <script>
-	<%@include file="./jquery/jquery.min.js"%>
+	<%@include file="../jquery/jquery.min.js"%>
 </script>
 <script type="text/javascript">
 	$(function(){

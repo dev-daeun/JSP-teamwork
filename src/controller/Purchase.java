@@ -26,7 +26,7 @@ public class Purchase extends HttpServlet {
 			 int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
 			 ArrayList<CartProductDto> buyList = dao.getCartByUserId(userId, 1);
 			 request.setAttribute("buyList", buyList);
-			 request.getRequestDispatcher("/buyList.jsp").forward(request, response);
+			 request.getRequestDispatcher("/productInfo/buyList.jsp").forward(request, response);
 			 
 		} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

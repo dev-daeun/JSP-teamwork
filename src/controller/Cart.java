@@ -36,7 +36,7 @@ public class Cart extends HttpServlet {
 			}
 			request.setAttribute("cartList", cartList);
 			request.setAttribute("totalPrice", totalPrice);
-			request.getRequestDispatcher("/cart.jsp").forward(request, response);
+			request.getRequestDispatcher("/productInfo/cart.jsp").forward(request, response);
 		} catch (NumberFormatException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -78,4 +78,60 @@ public class UserDao {
 		return userInfo;
 		
 	}
+	
+	public UserDto selectByUserId(int userId) throws ClassNotFoundException, SQLException{
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+
+
+		String query = "select * from user where id = ?";
+
+		statement = conn.prepareStatement(query);
+		statement.setInt(1, userId);
+	
+		ResultSet result = statement.executeQuery();
+		UserDto userInfo = new UserDto();
+		
+		//result.next()로 result 커서의 주소를 옮겨줘야 select문 결과를 가져올 수 있음.
+		while(result.next()){
+			userInfo.setId(result.getInt("id"));
+			userInfo.setEmail(result.getString("email"));
+			userInfo.setPhone(result.getString("phone"));
+			userInfo.setPassword(result.getString("password"));			
+			userInfo.setNickname(result.getString("nickname"));
+			userInfo.setAddress(result.getString("address"));
+			userInfo.setMileage(result.getInt("mileage"));
+		}
+		
+		statement.close();
+		conn.close();
+		result.close();
+		
+		return userInfo;
+		
+	}
+	
+	public void update(UserDto userInfo, int userId) throws SQLException, ClassNotFoundException{
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+
+
+		String query = "update user set email = ?, phone = ?, password = ?, nickname = ?, address = ? where id = ?";
+
+		statement = conn.prepareStatement(query);
+		statement.setString(1, userInfo.getEmail());
+		statement.setString(2, userInfo.getPhone());
+		statement.setString(3, userInfo.getPassword());
+		statement.setString(4, userInfo.getNickname());
+		statement.setString(5, userInfo.getAddress());
+		statement.setInt(6, userId);
+		
+	
+		statement.execute();
+		
+		statement.close();
+		conn.close();
+		
+	}
 }
