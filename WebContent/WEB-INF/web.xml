@@ -79,7 +79,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>user-post</servlet-name>
-    <url-pattern>/userPost</url-pattern>
+    <url-pattern>/post</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>log-out</servlet-name>

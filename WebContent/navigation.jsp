@@ -21,7 +21,7 @@
 				 <a class="nav-link" href="/ShoppingMall/userInfo/edit">내 정보 수정</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/ShoppingMall/userPost">회원 게시판</a>
+              <a class="nav-link" href="/ShoppingMall/post">회원 게시판</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/ShoppingMall/userInfo/logout">로그아웃</a>

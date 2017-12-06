@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/postInfo/posts.jsp=UTF-8
 encoding//WebContent/productInfo/cart.jsp=UTF-8
 encoding//WebContent/userInfo/signup.jsp=UTF-8
