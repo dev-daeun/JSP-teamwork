@@ -9,9 +9,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            		<a class="nav-link" href="portfolio-2-col.html">찜 리스트</a>
-   			  </li>
    			  <li class="nav-item">
    			 		<a class="nav-link" href="/ShoppingMall/cart">장바구니</a>
    			  </li>
@@ -21,10 +18,10 @@
    			  <li class="nav-item">
    			  </li>
    			  <li class="nav-item">
-				 <a class="nav-link" href="portfolio-4-col.html">내 정보 수정</a>
+				 <a class="nav-link" href="/ShoppingMall/userInfo/edit">내 정보 수정</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">회원 게시판</a>
+              <a class="nav-link" href="/ShoppingMall/userPost">회원 게시판</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/ShoppingMall/userInfo/logout">로그아웃</a>

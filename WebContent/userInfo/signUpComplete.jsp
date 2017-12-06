@@ -9,7 +9,7 @@
 	<%@ include file="../css/bootstrap.min.css"%>
 </style>
 <body>
-	<%@include file="../navigation.jsp"%>
+	<%@include file="../navBeforeLogin.jsp"%>
     	<div class="col-lg-4"></div>
 		<div class="container col-lg-4" style="margin-top: 70px; margin-bottom: 50px; align: center;">
 			<div class=" well">

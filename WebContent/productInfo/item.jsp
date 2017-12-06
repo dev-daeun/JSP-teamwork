@@ -18,7 +18,11 @@
 </style>
   <body>
 
-    <%@include file="../navigation.jsp"%>
+    <%if(request.getSession().getAttribute("uid")==null) {%>
+		<%@include file="../navBeforeLogin.jsp"%>
+	<% } else { %>
+		<%@include file="../navigation.jsp" %>
+	<% } %>	
 
     <!-- Page Content -->
     <div class="container">

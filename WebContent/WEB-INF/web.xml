@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
   <servlet>
     <servlet-name>sign-up</servlet-name>
     <servlet-class>controller.SignUp</servlet-class>
@@ -72,5 +73,29 @@
   <servlet-mapping>
     <servlet-name>edit-user</servlet-name>
     <url-pattern>/userInfo/edit</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <servlet-name>user-post</servlet-name>
+    <servlet-class>controller.Post</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>user-post</servlet-name>
+    <url-pattern>/userPost</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>log-out</servlet-name>
+    <servlet-class>controller.SignOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>log-out</servlet-name>
+    <url-pattern>/userInfo/logout</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>sign-out</servlet-name>
+    <servlet-class>controller.SignOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sign-out</servlet-name>
+    <url-pattern>/userInfo/signOut</url-pattern>
   </servlet-mapping>
 </web-app>

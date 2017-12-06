@@ -49,14 +49,12 @@ public class SignUp extends HttpServlet {
 			while(keys.hasNext()){
 				String key = keys.next();
 				if(userInfo.get(key)=="") {
-					response.sendError(400, key+"를/을 입력하세요.");
-					return;
+					throw new Error(400, key+"을/를 입력하세요.");
 				}
 			}
 
 			if(!request.getParameter("password").equals(request.getParameter("checkPassword"))) {
-				response.sendError(400, "비밀번호를 재확인해주세요.");
-				return;
+				throw new Error(400, "비밀번호를 재확인 해주세요.");
 			}
 			
 			UserDao dao = new UserDao();
@@ -72,17 +70,21 @@ public class SignUp extends HttpServlet {
 			request.getRequestDispatcher("/userInfo/signUpComplete.jsp").forward(request, response);
 			
 		}catch(ServletException e){
-			
+			e.printStackTrace();
 		}catch(IOException e){
-			
+			e.printStackTrace();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 			response.setCharacterEncoding("euc-kr");
 			response.sendError(500, e.getMessage());
-		}finally{
-			
+		
+		}catch(Error e){
+			response.setCharacterEncoding("euc-kr");
+			request.setAttribute("error", e);
+			request.getRequestDispatcher("/errorPage.jsp").forward(request, response);
+			response.sendError(e.getStatus(), e.getMessage());
 		}
-
+			
 		
 	}
 	

@@ -28,23 +28,22 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		if(email=="" || password == ""){
-			response.sendError(400, "이메일과 비밀번호를 입력하세요");
-			return;
-		}
+		
 		
 		try {
+			if(email=="" || password == ""){
+				throw new Error(400, "이메일과 비밀번호를 입력하세요");
+			}
+			
 			UserDao dao = new UserDao();
 			UserDto userInfo = dao.selectByEmail(email);
 			
 			if(userInfo.getEmail()==null) {
-				response.sendError(401, "입력하신 이메일로 회원정보를 찾을 수 없습니다.");
-				return;
+				throw new Error(401, "입력하신 이메일로 회원정보를 찾을 수 없습니다.");
 			}
 
 			if(!userInfo.getPassword().equals(password)){
-				response.sendError(401, "비밀번호가 일치하지 않습니다.");
-				return;
+				throw new Error(401, "비밀번호가 일치하지 않습니다.");
 			}
 			
 			/* 로그인 정보가 맞으면 */
@@ -54,6 +53,11 @@ public class Login extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Error e){
+			response.setCharacterEncoding("euc-kr");
+			request.setAttribute("error", e);
+			request.getRequestDispatcher("/errorPage.jsp").forward(request, response);
+			response.sendError(e.getStatus(), e.getMessage());
 		}
 	}
 

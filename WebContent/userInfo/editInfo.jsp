@@ -9,7 +9,7 @@
 	<%@ include file="../css/bootstrap.min.css"%>
 </style>
 <body>
-	<%@include file="../navBeforeLogin.jsp"%>
+	<%@include file="../navigation.jsp"%>
     <div style="align: center;">
 	    <div class="container" style="margin-top: 70px; margin-bottom: 50px; align: center;">
 		    <h1 class="well">회원정보 수정</h1>

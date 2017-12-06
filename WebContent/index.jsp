@@ -23,8 +23,11 @@
 		<%@ include file="./css/shop-homepage.css" %>
 	</style>
   <body>
-
-	<%@include file="./navBeforeLogin.jsp"%>
+	<%if(request.getSession().getAttribute("uid")==null) {%>
+		<%@include file="./navBeforeLogin.jsp"%>
+	<% } else { %>
+		<%@include file="./navigation.jsp" %>
+	<% } %>	
 
     <!-- Page Content -->
     <div class="container">

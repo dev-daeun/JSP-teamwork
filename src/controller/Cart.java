@@ -26,6 +26,10 @@ public class Cart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			if(request.getSession().getAttribute("uid")==null){
+				request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+				return;
+			}
 			CartDao dao = new CartDao();
 			int userId =  Integer.parseInt(request.getSession().getAttribute("uid").toString());
 			ArrayList<CartProductDto> cartList = dao.getCartByUserId(userId, 0);
@@ -50,7 +54,10 @@ public class Cart extends HttpServlet {
 			int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
 			int productCode = Integer.parseInt(request.getParameter("productCode"));
 			try {
-				
+				if(request.getSession().getAttribute("uid")==null){
+					request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+					return;
+				}
 				CartDto newCart = new CartDto();
 				newCart.setUserId(userId);
 				newCart.setProductCode(productCode);

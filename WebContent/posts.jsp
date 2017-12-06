@@ -19,7 +19,11 @@
   <style type="text/css">
   	<%@ include file="./css/bootstrap.min.css"%>
   </style>
-   <%@include file="./navigation.jsp"%>
+   	<%if(request.getSession().getAttribute("uid")==null) {%>
+		<%@include file="./navBeforeLogin.jsp"%>
+	<% } else { %>
+		<%@include file="./navigation.jsp" %>
+	<% } %>	
 
     <!-- Page Content -->
     <div class="container" style="margin-top: 70px;">

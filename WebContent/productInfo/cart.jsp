@@ -58,9 +58,10 @@
 	  
 	</div>	   
    <div class="container" style="margin-bottom: 120px;">
-   <button type="button" id="buy-button" style="float: right; margin-right: 50px; margin-left: 10px;" class="btn btn-info btn-lg-6">구매하기</button>
-   		합계 : <span id="total-price" style="float: right; font-weight: bold"> <%=request.getAttribute("totalPrice") %></span>
-	    
+   <% if(((ArrayList<CartProductDto>)request.getAttribute("cartList")).size()>0){%>
+	   		<button type="button" id="buy-button" style="float: right; margin-right: 50px; margin-left: 10px;" class="btn btn-info btn-lg-6">구매하기</button>
+	   		<span>합계 :</span> <span id="total-price" style="float: right; font-weight: bold"> <%=request.getAttribute("totalPrice") %></span>
+	<% }  %>
 	</div>  	   
 	    <!-- Footer -->
  	<%@include file="../footer.html"%>
