@@ -27,7 +27,7 @@ public class Cart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			if(request.getSession().getAttribute("uid")==null){
-				request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/userInfo/login").forward(request, response);
 				return;
 			}
 			CartDao dao = new CartDao();
@@ -51,13 +51,9 @@ public class Cart extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
-			int productCode = Integer.parseInt(request.getParameter("productCode"));
 			try {
-				if(request.getSession().getAttribute("uid")==null){
-					request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
-					return;
-				}
+				int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
+				int productCode = Integer.parseInt(request.getParameter("productCode"));
 				CartDto newCart = new CartDto();
 				newCart.setUserId(userId);
 				newCart.setProductCode(productCode);
@@ -73,7 +69,6 @@ public class Cart extends HttpServlet {
 					}
 				}
 				dao.insert(newCart);
-				
 				response.sendRedirect(request.getRequestURI()+"?code="+productCode);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block

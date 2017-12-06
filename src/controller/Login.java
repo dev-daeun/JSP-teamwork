@@ -57,7 +57,6 @@ public class Login extends HttpServlet {
 			response.setCharacterEncoding("euc-kr");
 			request.setAttribute("error", e);
 			request.getRequestDispatcher("/errorPage.jsp").forward(request, response);
-			response.sendError(e.getStatus(), e.getMessage());
 		}
 	}
 

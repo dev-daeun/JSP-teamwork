@@ -21,7 +21,7 @@ public class Purchase extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("uid")==null){
-			request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/userInfo/login").forward(request, response);
 			return;
 		}
 		dao = new CartDao();
@@ -41,10 +41,7 @@ public class Purchase extends HttpServlet {
 
 	/* ajax에서 data키에 담아 보내는 값은 doDelete에서 못찾음. -> doPost에서 쿼리스트링으로 구분해서 처리*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		if(request.getSession().getAttribute("uid")==null){
-			request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
-			return;
-		}
+
 		dao = new CartDao();
 		int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
 		int mileage = Integer.parseInt(request.getParameter("mileage"));

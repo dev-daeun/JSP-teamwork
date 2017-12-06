@@ -134,4 +134,19 @@ public class UserDao {
 		conn.close();
 		
 	}
+	
+	public void delete(int userId) throws SQLException, ClassNotFoundException{
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+
+
+		String query = "delete from user where id = ?";
+
+		statement = conn.prepareStatement(query);
+		statement.setInt(1, userId);
+		statement.execute();
+		
+		statement.close();
+		conn.close();
+	}
 }

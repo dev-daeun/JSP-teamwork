@@ -98,6 +98,10 @@
 	<script type="text/javascript">
 	if(typeof jQuery == "undefined") alert("not loaeded")
 		$("#add-cart").click(function(){
+			if(<%=request.getSession().getAttribute("uid")%>==null){
+				alert("로그인 후 사용해주세요.");
+				return;
+			}
 			$.ajax({
 				url: "/ShoppingMall/cart",
 				method: "POST",

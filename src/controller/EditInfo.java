@@ -24,7 +24,7 @@ public class EditInfo extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("uid")==null){
-			request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/userInfo/login").forward(request, response);
 			return;
 		}
 		int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
@@ -47,10 +47,6 @@ public class EditInfo extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession().getAttribute("uid")==null){
-			request.getRequestDispatcher("/userInfo/login.jsp").forward(request, response);
-			return;
-		}
 		request.setCharacterEncoding("UTF-8");
 	
 		String email = request.getParameter("email");

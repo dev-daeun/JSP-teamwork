@@ -46,11 +46,18 @@
 									<div class="form-group">
 										<label>보유 마일리지</label>
 										<h5><%=request.getAttribute("mileage")%>p</h5>
-									</div>			
+									</div>		
 									<button type="submit" class="btn btn-lg btn-info" style="float: right;">회원정보 수정</button>					
 								</div>
-							</form> 
-						</div>	
+							</form>
+						</div>
+						<div class="row">
+						<form>
+							<div class="form-group" style="float: right;" >
+								<button id="signout-button" class="btn btn-lg btn-danger" style="float: right;" >회원탈퇴</button>	
+							</div>
+						</form>	
+						</div>
 				</div>
 			</div>
 		</div>
@@ -58,10 +65,18 @@
  	<%@include file="../footer.html"%>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../jquery/jquery.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+<script>
+	<%@include file="../jquery/jquery.min.js"%>
+</script>
     <script>
-    	
+    	$("#signout-button").click(function(ent){
+    		if(confirm("정말로 탈퇴하시겠습니까?")){
+    			$.ajax({
+    				url: "/ShoppingMall/userInfo/signOut",
+    				method: "POST"
+    			});
+    		}
+    	})
     </script>
 </body>
 </html>
