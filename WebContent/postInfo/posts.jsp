@@ -35,7 +35,10 @@
 	<% for(UserPostDto element: (ArrayList<UserPostDto>)request.getAttribute("list") ) {%>
       <hr>
       <div class="row">
-        <div class="col-md-12">
+      	 <div class="col-md-5">
+      	 	<img src="${pageContext.request.contextPath}/WebContent/static/2729985ef1b1182df241f7a80be60966.jpg">
+      	 </div>
+        <div class="col-md-7">
           <span style="font-size: 30px; margin-right: 20px;"><%=element.getPost().getTitle() %></span>
           <a href="#"><span><%=element.getUser().getNickname() %></span></a>
           <p><%=element.getPost().getContent() %></p>

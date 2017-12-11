@@ -32,7 +32,11 @@
 											<label>내용</label>
 											<textarea name="content" placeholder="내용을 입력하세요." class="form-control">
 											</textarea>
-										</div>																			
+										</div>			
+										<div class="col-lg-12 form-group">
+											<label>파일 업로드</label>
+											<input type="file" name="file" placeholder="내용을 입력하세요." class="form-control">
+										</div>																		
 									</div>								
 								<button type="submit" class="btn btn-lg btn-info" style="align: center;">등록하기</button>					
 							</form> 

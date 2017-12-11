@@ -22,13 +22,14 @@ public class PostDao {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
 		
-		String query = "insert into post(userId, category, title, content) values(?,?,?,?)";
+		String query = "insert into post(userId, category, title, content, filePath) values(?,?,?,?,?)";
 		
 		statement = conn.prepareStatement(query);
 		statement.setInt(1, newPost.getUserId());
 		statement.setString(2, newPost.getCategory());
 		statement.setString(3, newPost.getTitle());
 		statement.setString(4, newPost.getContent());
+		statement.setString(5, newPost.getFilePath());
 		statement.execute();
 		
 		statement.close();
@@ -47,16 +48,20 @@ public class PostDao {
 		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 		PostDto post;
 		UserDto user;
+		Date postedDate;
+		String date;
 		while(result.next()){
 			post = new PostDto();
 			post.setCategory(result.getString("category"));
 			post.setUserId(result.getInt("userId"));
 			post.setTitle(result.getString("title"));
 			post.setContent(result.getString("content"));
-			Date postedDate = result.getDate("postedTime");
-		   String date = DATE_FORMAT.format(postedDate);
+			post.setFilePath(result.getString("filePath"));
+			
+			postedDate = result.getDate("postedTime");
+		   date = DATE_FORMAT.format(postedDate);
 		   post.setPostedTime(date);
-   
+		   
 		   user = new UserDto();
 		   user.setNickname(result.getString("nickname"));
 		   

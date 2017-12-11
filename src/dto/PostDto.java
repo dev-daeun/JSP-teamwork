@@ -9,6 +9,13 @@ public class PostDto {
 	private String category;
 	private String title;
 	private String content;
+	private String filePath;
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 	private String postedTime;
 	public int getId() {
 		return id;
