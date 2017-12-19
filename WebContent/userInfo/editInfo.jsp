@@ -15,7 +15,7 @@
 		    <h1 class="well">회원정보 수정</h1>
 			<div class="col-lg-12 well">
 				<div class="row">
-							<form action="/ShoppingMall/userInfo/edit" method="POST">
+							<form action="/userInfo/edit" method="POST">
 								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-sm-6 form-group">
@@ -72,7 +72,7 @@
     	$("#signout-button").click(function(ent){
     		if(confirm("정말로 탈퇴하시겠습니까?")){
     			$.ajax({
-    				url: "/ShoppingMall/userInfo/signOut",
+    				url: "/userInfo/signOut",
     				method: "POST"
     			});
     		}

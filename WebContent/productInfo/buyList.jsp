@@ -33,7 +33,7 @@
 								<td class="col-lg-5">		                    
 		                          <div class="media-body">
 		                          	<h4 class="media-heading">
-		                          		<a class="thumbnail pull-left" href="/ShoppingMall/productInfo/item?code=<%=cart.getProduct().getCode() %>"> 
+		                          		<a class="thumbnail pull-left" href="/productInfo/item?code=<%=cart.getProduct().getCode() %>"> 
 		                          			<img style="width: 120px; height: 80px;" class="media-object" src="<%=cart.getProduct().getImagePath()%>">
 		                                	<%=cart.getProduct().getName() %>
 		                                </a>
@@ -71,7 +71,7 @@
 			if(confirm("구매취소 하시겠습니까?")){
 				var code = $(ent.target).parents("tr").attr("value");
 				$.ajax({
-					url: "/ShoppingMall/purchase?value=delete",
+					url: "/purchase?value=delete",
 					method: "POST",
 					data: {
 						"code": code,

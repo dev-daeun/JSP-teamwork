@@ -31,12 +31,12 @@
     <div class="container" style="margin-top: 70px;">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">회원 게시판  <a href="/ShoppingMall/postInfo/register.jsp"><button class="btn btn-info">글 등록하기</button></a></h1>
+      <h1 class="mt-4 mb-3">회원 게시판  <a href="/postInfo/register.jsp"><button class="btn btn-info">글 등록하기</button></a></h1>
 	<% for(UserPostDto element: (ArrayList<UserPostDto>)request.getAttribute("list") ) {%>
       <hr>
       <div class="row">
       	 <div class="col-md-5">
-      	 	<img src="${pageContext.request.contextPath}/WebContent/static/2729985ef1b1182df241f7a80be60966.jpg">
+      	 	<img src="/WebContent/static/2729985ef1b1182df241f7a80be60966.jpg">
       	 </div>
         <div class="col-md-7">
           <span style="font-size: 30px; margin-right: 20px;"><%=element.getPost().getTitle() %></span>

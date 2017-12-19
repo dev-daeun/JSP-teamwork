@@ -38,9 +38,9 @@
 
           <h3 class="my-4">슬라임슬라임<img width="70px" height="70px" src="http://file2.instiz.net/data/cached_img/upload/201506049/639f49dc5697497e782ad306c4aa0d16.png"></h3>
           <div class="list-group">
-            <a href="/ShoppingMall/productInfo/list?category=perl" class="list-group-item">진주</a>
-            <a href="/ShoppingMall/productInfo/list?category=sand" class="list-group-item">색모래</a>
-            <a href="/ShoppingMall/productInfo/list?category=etc" class="list-group-item">기타</a>
+            <a href="/productInfo/list?category=perl" class="list-group-item">진주</a>
+            <a href="/productInfo/list?category=sand" class="list-group-item">색모래</a>
+            <a href="/productInfo/list?category=etc" class="list-group-item">기타</a>
           </div>
 
         </div>
@@ -81,12 +81,12 @@
 			<% for(ProductDto product: (ArrayList<ProductDto>)request.getAttribute("productList")) { %>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="/ShoppingMall/productInfo/item?code=<%=product.getCode()%>">
+                <a href="/productInfo/item?code=<%=product.getCode()%>">
                 	<img class="card-img-top" src=<%=product.getImagePath()%> alt="">
                 </a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="/ShoppingMall/productInfo/item?code=<%=product.getCode()%>"><%=product.getName()%></a>
+                    <a href="/productInfo/item?code=<%=product.getCode()%>"><%=product.getName()%></a>
                   </h4>
                   <h5>￦<%=product.getPrice()%></h5>
                   <p class="card-text"><%=product.getDescription()%></p>

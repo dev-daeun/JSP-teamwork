@@ -4,6 +4,7 @@ package dto;
 public class ProductDto {
 	
 	private int code;
+	private int adminId;
 	private String category;
 	private String name;
 	private int price;
@@ -13,12 +14,20 @@ public class ProductDto {
 	
 	public ProductDto(){
 		this.code = 0;
+		this.adminId = 0;
 		this.category = null;
 		this.name = null;
 		this.price = 0;
 		this.imagePath = null;
 		this.description = null;
 		this.postedTime = null;
+	}
+	
+	public int getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
 	}
 	public int getCode() {
 		return code;

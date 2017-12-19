@@ -15,7 +15,7 @@
 		    <h1 class="well">회원가입</h1>
 			<div class="col-lg-12 well">
 				<div class="row">
-							<form action="/ShoppingMall/userInfo/signup" method="POST">
+							<form action="/userInfo/signup" method="POST">
 								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-sm-6 form-group">

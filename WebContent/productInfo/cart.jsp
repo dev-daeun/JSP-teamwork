@@ -28,12 +28,13 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                <% for(CartProductDto cart: (ArrayList<CartProductDto>)request.getAttribute("cartList")){ %>
+	                <% for(int i = 0; i<((ArrayList<CartProductDto>)request.getAttribute("cartList")).size(); i++){ %>
+	                  <% CartProductDto cart =  ((ArrayList<CartProductDto>)request.getAttribute("cartList")).get(i);%>
 	                	  <tr class="col-lg-12 media" value="<%=cart.getProduct().getCode() %>">
 								<td class="col-lg-5">		                    
 		                          <div class="media-body">
 		                          	<h4 class="media-heading">
-		                          		<a class="thumbnail pull-left" href="/ShoppingMall/productInfo/item?code=<%=cart.getProduct().getCode() %>"> 
+		                          		<a class="thumbnail pull-left" href="/productInfo/item?code=<%=cart.getProduct().getCode() %>"> 
 		                          			<img style="width: 120px; height: 80px;" class="media-object" src="<%=cart.getProduct().getImagePath()%>">
 		                                	<%=cart.getProduct().getName() %>
 		                                </a>
@@ -42,10 +43,10 @@
 		                          </div>
 	                        	</td>
 	                        <td class="col-lg-1" style="text-align: center">
-	                        		<input type="number" class="form-control" class="amount-input" value="1">
+	                        		<input type="number" class="form-control" class="amount-input" id="amount-input<%=i%>" >
 	                        </td>
-	                        <td class="col-lg-2 text-center element-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
-	                        <td class="col-lg-2 text-center element-total-price"><strong><%=cart.getProduct().getPrice() %></strong></td>
+	                        <td class="element-price col-lg-2 text-center"><strong ><%=cart.getProduct().getPrice() %></strong></td>
+	                        <td class="element-total-price col-lg-2 text-center"><strong><%=cart.getProduct().getPrice() %></strong></td>
 	                        <td class="col-lg-2 ">
 	                        		<button type="button" class="btn btn-danger edit-amount"> 수정</button>
 	                        		<button type="button" class="btn btn-danger"> 삭제</button>
@@ -71,6 +72,24 @@
 </script>
 <script type="text/javascript">
 	$(function(){
+		document.getElementsByClassName("amount-input").defaultValue = "1";
+		
+		var amountArray = new Array();
+		$(".amount-input").each(function(idx, element){
+				
+		});
+		$("body").on("click", ".edit-amount", function(ent){
+			var amount = parseInt($(ent.target).parent().siblings("td.col-lg-1").children().val());
+			var productPrice = parseInt($(ent.target).parent().siblings("td.element-price").children().text());
+			var eachTotalPrice = $(ent.target).parent().siblings("td.element-total-price").children();
+			eachTotalPrice.text(productPrice * amount);
+			
+			var totalPrice = parseInt($("#total-price").text());
+			totalPrice += parseInt(eachTotalPrice.text());
+			$("#total-price").text(totalPrice);
+			
+		})
+		
 		var productArray = new Array();
 		
 		$("#buy-button").click(function(){
@@ -80,7 +99,7 @@
 				});
 	
 				$.ajax({
-					url: "/ShoppingMall/purchase?value=post",
+					url: "/purchase?value=post",
 					method: "POST",
 					data: {
 						buyList: JSON.stringify(productArray),
@@ -91,7 +110,7 @@
 					},
 					success: function(){
 						alert("구매완료 되었습니다.");
-						location.href="/ShoppingMall/purchase";
+						location.href="/purchase";
 					}
 				})
 			}

@@ -97,4 +97,20 @@
     <servlet-name>sign-out</servlet-name>
     <url-pattern>/userInfo/signOut</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>admin-login</servlet-name>
+    <servlet-class>controller.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin-login</servlet-name>
+    <url-pattern>/admin/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>product-register</servlet-name>
+    <servlet-class>controller.ProductRegister</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>product-register</servlet-name>
+    <url-pattern>/product/registration</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -111,4 +111,24 @@ public class ProductDao {
 		return product;
 	}
 	
+	public void insert(ProductDto product) throws ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(DBConfig.getDBAddress(), DBConfig.getDBUser(), DBConfig.getDBPassword());
+
+		String query = "insert into product(adminId, category, name, price, imagePath, description) values(?,?,?,?,?,?)";
+		statement = conn.prepareStatement(query);
+		statement.setInt(1, product.getAdminId());
+		statement.setString(2, product.getCategory());
+		statement.setString(3,product.getName());
+		statement.setInt(4, product.getPrice());
+		statement.setString(5, product.getImagePath());
+		statement.setString(6, product.getDescription());
+		statement.execute();
+
+	
+		statement.close();
+		conn.close();
+
+	}
+	
 }

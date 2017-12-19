@@ -128,34 +128,7 @@ public class Post extends HttpServlet {
 	        return sb.toString(); 
 	    } 
 	
-//		request.setCharacterEncoding("UTF-8");
-//		String category = request.getParameter("category");
-//		String title = request.getParameter("title");
-//		String content = request.getParameter("content");
-//	
-//			try {
-//				if(title=="" || content=="") throw new Error(400, "제목 또는 내용을 입력하세요");
-//				PostDto post = new PostDto();
-//				int userId = Integer.parseInt(request.getSession().getAttribute("uid").toString());
-//				post.setUserId(userId);
-//				post.setCategory(category);
-//				post.setTitle(title);
-//				post.setContent(content);
-//	
-//				
-//				dao = new PostDao();
-//				dao.insert(post);
-//				doGet(request, response);
-//				
-//			} catch(ClassNotFoundException | SQLException e){
-//				e.printStackTrace();
-//			}
-//			catch (Error e) {
-//				response.setCharacterEncoding("euc-kr");
-//				request.setAttribute("error", e);
-//				request.getRequestDispatcher("/errorPage.jsp").forward(request, response);
-//				response.sendError(e.getStatus(), e.getMessage());
-//			}
+
 		
 	}
 

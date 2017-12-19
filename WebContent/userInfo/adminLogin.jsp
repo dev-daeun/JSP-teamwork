@@ -14,11 +14,11 @@
 		<div class="col-lg-4"></div>
 		<div class="container col-lg-4" style="margin-top: 70px; margin-bottom: 50px; align: center;">
 			<div class=" well">
-				<h1 class="well" style="text-align: center;">로그인</h1>
-					<form action="/userInfo/login" method="POST">
+				<h1 class="well" style="text-align: center;">관리자 로그인</h1>
+					<form action="/admin/login" method="POST">
 						<div class="form-group">
-							<label>이메일 주소</label>
-							<input type="text" name="email" placeholder="slimemon@slime.com" class="form-control">
+							<label>아이디</label>
+							<input type="text" name="username" placeholder="아이디를 입력하세요." class="form-control">
 						</div>																	
 						<div class="form-group">
 							<label>비밀번호</label>
